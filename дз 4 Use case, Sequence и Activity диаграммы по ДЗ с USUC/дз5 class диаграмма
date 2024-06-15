@@ -1,0 +1,14 @@
+@startuml
+
+class "Пользователь"
+class "Человек"
+class "Человек\n получающий\n перевод"
+class "Счет"
+class "Карта"
+class "Перевод"
+class "Отчет"
+class "Банкомат"
+
+
+
+@enduml
