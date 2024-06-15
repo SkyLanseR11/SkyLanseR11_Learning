@@ -2,20 +2,8 @@
 
 skinparam classAttributeIconSize 0
 
-class "Счет" as с {
--PIN : int
--cardID : int
-+SetPIN()
-+GetBalance()
-+BlockCard() 
-}
-class "Карта" as к {
--PIN : int
--cardID : int
-+SetPIN()
-+GetBalance()
-+BlockCard() 
-}
+together {
+
 class "Перевод" as пд {
 -PIN : int
 -cardID : int
@@ -23,13 +11,19 @@ class "Перевод" as пд {
 +GetBalance()
 +BlockCard() 
 }
-class "Отчет" as о {
--PIN : int
--cardID : int
-+SetPIN()
-+GetBalance()
-+BlockCard() 
+
+class "Счет" as с {
+-Account : int
++Open()
++Close()
 }
+
+class "Отчет" as о {
++Save()
+}
+
+}
+
 class "Банкомат" as б {
 -PIN : int
 -cardID : int
@@ -38,42 +32,45 @@ class "Банкомат" as б {
 +BlockCard() 
 }
 
-together {
-class "Пользователь" as п {
--PIN : int
--cardID : int
-#Address : char
-+GetATM()
-+GetBalance()
-+BlockCard() 
-}
-class "Человек" as ч {
--Name : string
--cardID : int
-+SetPIN()
-+GetBalance()
-+BlockCard() 
-}
-class "Человек\n получающий\n перевод" as чпп {
+class "Карта" as к {
 -PIN : int
 -cardID : int
 +SetPIN()
 +GetBalance()
 +BlockCard() 
-}
 }
 
-б <-- с
+together {
+
+class "Пользователь" as п {
+#Address : char
++MakeTransfer()
++SetAmount()
++SelectAccount()
+}
+
+class "Человек" as ч {
++Name : string
+-cardID : int
++PhoneNumber : char
++CreateAccount()
++BlockCard() 
+}
+
+class "Человек\n получающий\n перевод" as чпп {
++GetTransfer()
++CheckTransferInfo()
+}
+
+}
+
 ч <|-- п
 с <-- п
-п <-- пд
-п <-- к
 ч <|-- чпп
 с <|-- к
 пд <.. с
 чпп <-- пд
 пд *-- о
 б <-- к
-чпп <-- с
 
 @enduml
