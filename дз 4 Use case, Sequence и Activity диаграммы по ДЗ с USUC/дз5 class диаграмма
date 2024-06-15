@@ -1,15 +1,65 @@
 @startuml
 
-class "Счет" as с
-class "Карта" as к
-class "Перевод" as пд
-class "Отчет" as о
-class "Банкомат" as б
+skinparam classAttributeIconSize 0
+
+class "Счет" as с {
+-PIN : int
+-cardID : int
++SetPIN()
++GetBalance()
++BlockCard() 
+}
+class "Карта" as к {
+-PIN : int
+-cardID : int
++SetPIN()
++GetBalance()
++BlockCard() 
+}
+class "Перевод" as пд {
+-PIN : int
+-cardID : int
++SetPIN()
++GetBalance()
++BlockCard() 
+}
+class "Отчет" as о {
+-PIN : int
+-cardID : int
++SetPIN()
++GetBalance()
++BlockCard() 
+}
+class "Банкомат" as б {
+-PIN : int
+-cardID : int
++SetPIN()
++GetBalance()
++BlockCard() 
+}
 
 together {
-class "Пользователь" as п
-class "Человек" as ч
-class "Человек\n получающий\n перевод" as чпп
+class "Пользователь" as п {
+-PIN : int
+-cardID : int
++SetPIN()
++GetBalance()
++BlockCard() 
+}
+class "Человек" as ч {
+-PIN : int
+-cardID : int
++SetPIN()
++GetBalance()
++BlockCard() 
+}
+class "Человек\n получающий\n перевод" as чпп {
+-PIN : int
+-cardID : int
++SetPIN()
++GetBalance()
++BlockCard() 
+}
 }
 
 ч <|-- п
