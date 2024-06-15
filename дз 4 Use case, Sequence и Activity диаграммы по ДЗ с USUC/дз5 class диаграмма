@@ -42,12 +42,13 @@ together {
 class "Пользователь" as п {
 -PIN : int
 -cardID : int
-+SetPIN()
+#Address : char
++GetATM()
 +GetBalance()
 +BlockCard() 
 }
 class "Человек" as ч {
--PIN : int
+-Name : string
 -cardID : int
 +SetPIN()
 +GetBalance()
@@ -62,6 +63,7 @@ class "Человек\n получающий\n перевод" as чпп {
 }
 }
 
+б <-- с
 ч <|-- п
 с <-- п
 п <-- пд
