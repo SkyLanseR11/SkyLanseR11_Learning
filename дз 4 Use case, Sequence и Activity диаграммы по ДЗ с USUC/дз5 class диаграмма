@@ -2,7 +2,19 @@
 
 skinparam classAttributeIconSize 0
 
-together {
+class Карта {
+-Пин-код : int
+-НомерКарты : int
++ВладелецКарты : char
++SetPIN()
++GetBalance()
++BlockCard() 
+}
+
+class Банкомат {
++ID Банкомата
++СчитатьКарту() 
+}
 
 class "Перевод" as пд {
 -PIN : int
@@ -22,25 +34,8 @@ class "Отчет" as о {
 +Save()
 }
 
-}
 
-class "Банкомат" as б {
--PIN : int
--cardID : int
-+SetPIN()
-+GetBalance()
-+BlockCard() 
-}
 
-class "Карта" as к {
--PIN : int
--cardID : int
-+SetPIN()
-+GetBalance()
-+BlockCard() 
-}
-
-together {
 
 class "Пользователь" as п {
 #Address : char
@@ -62,15 +57,5 @@ class "Человек\n получающий\n перевод" as чпп {
 +CheckTransferInfo()
 }
 
-}
-
-ч <|-- п
-с <-- п
-ч <|-- чпп
-с <|-- к
-пд <.. с
-чпп <-- пд
-пд *-- о
-б <-- к
 
 @enduml
