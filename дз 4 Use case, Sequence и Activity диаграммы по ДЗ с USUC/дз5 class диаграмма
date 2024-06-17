@@ -28,13 +28,14 @@ class Пользователь {
 class Человек {
 +Name : string
 -cardID : int
-+PhoneNumber : char
++PhoneNumber : int
 +CreateAccount()
 +BlockCard() 
 }
 
 class Счет {
 -Account : int
++PhoneNumber : int
 +Open()
 +Close()
 }
@@ -42,6 +43,8 @@ class Счет {
 }
 
 class Перевод {
+-ПереводID : char
++ВыбратьСчетДляПеревода()
 +СоздатьОтчет()
 +ПроверкаСредств()
 }
