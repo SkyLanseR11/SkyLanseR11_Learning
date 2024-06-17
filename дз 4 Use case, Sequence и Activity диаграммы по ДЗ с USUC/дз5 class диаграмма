@@ -11,40 +11,33 @@ class Карта {
 +BlockCard() 
 }
 
-class Банкомат {
-+ID Банкомата
-+СчитатьКарту() 
-}
-
-class "Перевод" as пд {
--PIN : int
--cardID : int
-+SetPIN()
-+GetBalance()
-+BlockCard() 
-}
-
-class "Счет" as с {
+class Счет {
 -Account : int
 +Open()
 +Close()
 }
 
-class "Отчет" as о {
-+Save()
-}
-
-
-
-
-class "Пользователь" as п {
+class Пользователь {
 #Address : char
 +MakeTransfer()
 +SetAmount()
 +SelectAccount()
 }
 
-class "Человек" as ч {
+
+class Банкомат {
+-ID Банкомата : int
++СчитатьКарту() 
+}
+
+class Перевод {
+}
+
+class Отчет {
++Save()
+}
+
+class Человек {
 +Name : string
 -cardID : int
 +PhoneNumber : char
@@ -57,5 +50,12 @@ class "Человек\n получающий\n перевод" as чпп {
 +CheckTransferInfo()
 }
 
+Банкомат <-- Карта
+Карта o-- Счет
+Пользователь <-- Счет
+Перевод <-- Пользователь 
+Человек <|-- Пользователь 
+Перевод <-- Отчет
+Человек <|-- чпп
 
 @enduml
