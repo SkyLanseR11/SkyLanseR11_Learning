@@ -1,0 +1,10 @@
+@startuml
+
+Title Sequence диаграмма по методу 2: UserInfo
+
+actor Пользователь as п
+participant Система as с
+database "База данных" as бд
+
+п ++
+с ++
